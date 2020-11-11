@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 import './App.css';
 
-function App() {
+const EmailSignUp = ({ children }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React Tig O Tatties
-        </a>
-      </header>
-    </div>
+    <Form>
+      <Form.Group controlId="formBasicEmail">
+        <Form.Label>Enter your ARK card number:</Form.Label>
+        <Form.Control type="email" placeholder="ARK card number" />
+        <Form.Text className="text-muted">
+          Thank you for participating in acts of random kindness!
+        </Form.Text>
+      </Form.Group>
+      <Button variant="primary" type="submit">
+        Submit
+      </Button>
+    </Form>
   );
-}
+};
+
+const App = () => (
+  <Container className="p-3">
+    <Jumbotron>
+      <h1 className="header">ARK</h1>
+      <EmailSignUp/>
+    </Jumbotron>
+  </Container>
+);
 
 export default App;
